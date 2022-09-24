@@ -1,5 +1,5 @@
-# Example of a `.gitattributes` file which reclassifies `.rb` files as Java:
-*.rb linguist-language=Python
-
-# Replace any whitespace in the language name with hyphens:
-*.glyphs linguist-language=OpenStep-Property-List
+coreap/* linguist-generated
+scot-ui/public/* linguist-vendored
+lib/* linguist-language=Python
+bin/* linguist-language=Python
+# Dockerfile* linguist-language=Dockerfile
