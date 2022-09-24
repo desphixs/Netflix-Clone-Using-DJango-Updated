@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <main class='bg-primary_black text-cednter min-h-screen w-full shdowcase'>
+        
+       
+        <section class="h-screen relative bg-no-repeat pb-8 pl-6 flex justify-end items-end bg-cover" style="background-image: url('{{movie.image.url}}');">
+            <div>
+                <h2 style="text-shadow: 1px 4px 2px black;" class="text-6xl font-semibold text-white my-4">
+                    {{movie.title|title}}
+                </h2>
+                <p style="text-shadow: 1px 2px 2px black;" class=" w-11/12 md:w-5/12 font-medium text-white my-4">
+                    {{movie.description}}.
+                </p>
+                <div class="flex my-4">
+
+                    <a style="padding: 10px; background: red;" href="{% url 'netflixapp:play-movie' movie_id=movie.uuid %}" class="flex items-center bg-red py-2 px-5 rounded-md">
+                        <span class="material-symbols-outlined">
+                            play_arrow
+                        </span>
+                        <span>
+                            Play
+                    <!-- <span style="background-color: red; height: 40px; width: 180px; margin-top: -35px; margin-bottom: 40px; padding-top: 7px; border-radius: 10px;" class="ml-3 font-medium">
+                       <i class="fas fa-play"></i> Play
+                    </span> -->
+
+                </a>
+    
+                    <button class="ml-4 text-white flex items-center bg-gray-500 bg-opacity-80 py-2 px-5 rounded-md">
+                       
+                        <ion-icon name="information-circle-outline" class="text-2xl" ></ion-icon>
+                        <span class="ml-3 font-medium">
+                            More Info
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </section> 
+        <section class='bg-primary_black  min-h-screen flex justify-center py-10'>
+            <div class="p-8 w-10/12 relative" >
+                <div style="margin-right: auto; margin-left: auto; display: inline-block;" >
+                        <a style="padding: 10px; background: red;" href="{% url 'netflixapp:play-movie' movie_id=movie.uuid %}" class="flex items-center bg-red py-2 px-5 rounded-md">
+                            <span class="material-symbols-outlined">
+                                play_arrow
+                            </span>
+                            <span>
+                                Play
+                        <!-- <span style="background-color: red; height: 40px; width: 180px; margin-top: -35px; margin-bottom: 40px; padding-top: 7px; border-radius: 10px;" class="ml-3 font-medium">
+                           <i class="fas fa-play"></i> Play
+                        </span> -->
+
+                    </a>
+                    <br><br>
+                    </div>
+                <h2 class="text-gray-200 text-3xl font-medium">
+                    Description
+                </h2>
+                <br>
+                <div class="fldex justify-center  items-center min-w-full  movie_lis">
+                    <p class="text-gray-100 text-lg">
+                        <small>{{movie.description}}</small>
+                    </p>
+                    <!-- <div style="margin-right: auto; margin-left: auto; display: inline-block;" >
+                        <a href="{% url 'netflixapp:play-movie' movie_id=movie.uuid %}" class="flex items-center bg-red py-2 px-5 rounded-md">
+                        
+                        <span style="background-color: red; height: 40px; width: 80px; margin-top: 35px; padding-top: 7px; border-radius: 10px;" class="ml-3 font-medium">
+                           <i class="fas fa-play"></i> Play
+                        </span>
+                    </a>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    <script>
+        const nav = document.querySelector('nav')
+
+        document.addEventListener("scroll",e=>{
+            
+            if(scrollY>200){
+                nav.classList.add('bg-gray-900')
+          
+            }else{
+                nav.classList.remove('bg-gray-900')
+                
+            }
+        })
+
+    </script>
+
+{% endblock content %}

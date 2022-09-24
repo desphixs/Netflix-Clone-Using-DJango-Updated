@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+
+<body>
+
+    <div class="upper">
+        
+        <br><br><br><br><br>
+        <div class="login-div" >
+            <form class="login" method="POST" style="width: 350px;">
+                <div class=" text-center my-4">
+                    
+                    <p class="" style="color: red;">
+                        <strong style="color: red;">
+                            {{form.errors.email}}
+                        {{form.errors.password1}}
+                        {{form.errors.password2}}
+                        </strong>
+                        
+                    
+                    </p>
+                   
+                </div>
+                 {% csrf_token %}
+                <h1>Sign Up </h1>
+                <div class="input-text">
+                    <input required type="email" name="email" id="id_email" id="idnputEmail" name="email" placeholder="Email or phone number" onfocus="inputOnFocus(this)" onblur="inputOnBlur(this)"/>
+                    <div class="warning-input" id="warningEmail">
+                        Please enter a valid email or phone number.
+                    </div>
+                </div>
+                
+                <div class="input-text">
+                    <input required type="password" name="password1" id="id_password1" placeholder="Password" onfocus="inputOnFocus(this)" onblur="inputOnBlur(this)"/>
+                    <div class="warning-input" id="warningPassword">
+                        Your password must contain between 4 and 60 characters.
+                    </div>
+                </div>
+                <div class="input-text">
+                    <input required type="password" name="password2" id="id_password2" placeholder="Confirm Password" onfocus="inputOnFocus(this)" onblur="inputOnBlur(this)"/>
+                    <div class="warning-input" id="warningPassword">
+                        Your password must contain between 4 and 60 characters.
+                    </div>
+                </div>
+                
+                <div>
+                    <button type="submit" class="signin-button">Sign Up</button>
+                </div>
+                <div class="remember-flex">
+                    <div>
+                        <input type="checkbox">
+                        <label class="color_text">Remember me</label>
+                    </div>
+                    <div class="help">
+                        <a class="color_text" href="#">Need help?</a>
+                    </div>
+                </div>
+                <div class="login-face">
+                    <!-- <img src="img/fb-icon.png" height="20"/><a href="#" class="color_link log_face">Login with Facebook</a> -->
+                </div>
+                <div class="new-members">
+                    <small>Have an account? <a href="{% url 'account_login' %}" class="signup-link">Sign in now</a>.</small>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+  
+    <script src="{% static 'assets/login/js/script.js' %}"></script>
+</body>
+</html>
+
+{% endblock content %}

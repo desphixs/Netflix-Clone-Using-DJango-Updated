@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- CSS only -->
+
+{% block content %}
+    <main class='bg-primary_black min-h-screen w-full'>
+        <section class="h-screen relative bg-no-repeat pb-8 pl-6 flex justify-end items-end bg-cover" style="background-image: url('https://redcapes.it/wp-content/uploads/2020/06/975DF24B-D384-4AB8-8D2C-8D61DA0D15C8-scaled.jpeg');">
+            <div>
+                <h2 style="text-shadow: 1px 2px 2px black;" class="text-6xl font-semibold text-white my-4">
+                   Artemis Fowl
+                </h2>
+                <p style="text-shadow: 1px 2px 2px black;" class=" bg-gray-500 bg-opacity-80 w-11/12 md:w-5/12 font-medium text-white my-4">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus repellendus odit perspiciatis nostrum culpa exercitationem quis. Ab obcaecati odio minus. Dolorum sapiente eaque, repellendus ea fugiat amet fuga libero at!
+                </p>
+                <div class="flex my-4">
+
+                    
+    
+                    <button class="ml-4 text-white flex items-center bg-gray-500 bg-opacity-80 py-2 px-5 rounded-md">
+                       
+                        <ion-icon name="information-circle-outline" class="text-2xl" ></ion-icon>
+                        <span class="ml-3 font-medium">
+                            #Trending
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </section> 
+        <section class='bg-primary_black  min-h-screen flex justify-center py-10'>
+            <div class="p-8 w-10/12 relative" >
+                <h2 class="text-gray-200 text-center mb-4 text-2xl font-medium">
+                    Popular on Netflix
+                </h2>
+                
+
+        <div class="flex flex-wrap justify-center items-center w-12/12  md:w-12/12">
+            {% for movie in movies %}
+                <a href="{% url 'netflixapp:movie-detail' movie_id=movie.uuid %}">
+                    <div style="height: 250px; width: 250px; object-fit: contain;" class="w-32 h-32 m-4  bg-blue-500 rounded-md cursor-pointer justify-center items-center flex-col flex">
+                        <img src="{{movie.image.url}}" style="width: 245px; height: 245px; object-fit: cover;" >
+                    </div>
+                    <p class="text-center">{{movie.title}}</p>
+
+                </a>
+            {% endfor %}
+            
+        </div>
+                
+        </section>
+        
+    </main>
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+    {% endblock content %}
