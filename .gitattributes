@@ -1,5 +1,3 @@
-coreap/* linguist-generated
-scot-ui/public/* linguist-vendored
-lib/* linguist-language=Python
-bin/* linguist-language=Python
-# Dockerfile* linguist-language=Dockerfile
+*.html linguist-detectable=false
+*.css linguist-detectable=false
+*.js linguist-detectable=false
